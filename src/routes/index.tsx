@@ -172,8 +172,8 @@ function Products() {
       <div className="mt-14 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
         {cats.map((c) => (
           <article key={c.title} className="group overflow-hidden rounded-2xl border border-border bg-card shadow-sm transition hover:-translate-y-1 hover:shadow-xl">
-            <div className="aspect-[4/3] overflow-hidden">
-              <img src={c.img.url} alt={c.title} className="h-full w-full object-cover transition duration-500 group-hover:scale-105" />
+            <div className="aspect-square overflow-hidden sm:aspect-[4/3]">
+              <img src={c.img.url} alt={c.title} className="h-full w-full object-cover object-center transition duration-500 group-hover:scale-105" />
             </div>
             <div className="p-6">
               <h3 className="font-display text-lg font-bold">{c.title}</h3>
