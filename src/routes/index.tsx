@@ -3,8 +3,17 @@ import { useState } from "react";
 import {
   ShieldCheck, Factory, Users, Package, Sparkles, PenTool,
   Box, Truck, Mail, Phone, MapPin, MessageCircle, ArrowRight,
-  CheckCircle2, Award, Globe2, Layers, Menu, X,
+  CheckCircle2, Award, Globe2, Layers, Menu, X, Send,
 } from "lucide-react";
+import { toast } from "sonner";
+import {
+  Sheet,
+  SheetContent,
+  SheetHeader,
+  SheetTitle,
+  SheetDescription,
+  SheetTrigger,
+} from "@/components/ui/sheet";
 
 import heroBg from "@/assets/luxury-designer-display-stockcake.jpg.asset.json";
 import workshop4 from "@/assets/workshop4.jpg.asset.json";
@@ -451,12 +460,93 @@ function Footer() {
   );
 }
 
-/* ---------------- Floating inquiry ---------------- */
+/* ---------------- Floating inquiry form ---------------- */
 function FloatingInquiry() {
+  const [open, setOpen] = useState(false);
+  const [form, setForm] = useState({ name: "", company: "", email: "", product: "", message: "" });
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    const subject = encodeURIComponent(`Inquiry from ${form.name} — ${form.product || "MORCCE"}`);
+    const body = encodeURIComponent(
+      `Name: ${form.name}\nCompany: ${form.company}\nEmail: ${form.email}\nProduct Interest: ${form.product}\n\nMessage:\n${form.message}`
+    );
+    window.open(`mailto:alex.chau@morcce.com?subject=${subject}&body=${body}`, "_blank");
+    setOpen(false);
+    setForm({ name: "", company: "", email: "", product: "", message: "" });
+
+    toast.success("Inquiry sent successfully!", {
+      description: (
+        <div className="mt-1 space-y-1 text-sm">
+          <p>Our team will reply within 24 hours.</p>
+          <p>
+            You can also reach us directly via{" "}
+            <a href="mailto:alex.chau@morcce.com" className="underline" style={{ color: "var(--color-primary-deep)" }}>email</a>
+            {" "}or{" "}
+            <a href="https://wa.me/8613480176296" target="_blank" rel="noopener noreferrer" className="underline" style={{ color: "var(--color-primary-deep)" }}>WhatsApp (+86-134-8017-6296)</a>.
+          </p>
+        </div>
+      ),
+      duration: 8000,
+    });
+  };
+
+  const Field = ({ label, ...rest }: { label: string } & React.InputHTMLAttributes<HTMLInputElement>) => (
+    <div>
+      <label className="mb-1.5 block text-xs font-semibold uppercase tracking-widest text-muted-foreground">{label}</label>
+      <input
+        {...rest}
+        className="w-full rounded-lg border border-border bg-white px-4 py-3 text-sm outline-none focus:border-[color:var(--color-primary)]"
+        onChange={(e) => setForm((f) => ({ ...f, [rest.name!]: e.target.value }))}
+        value={(form as any)[rest.name!] || ""}
+      />
+    </div>
+  );
+
   return (
-    <a href="#contact" aria-label="Inquiry" className="fixed bottom-6 right-6 z-40 flex items-center gap-2 rounded-full px-5 py-3 text-sm font-semibold text-white shadow-2xl transition hover:-translate-y-0.5" style={{ background: "var(--color-primary-deep)" }}>
-      <MessageCircle className="h-4 w-4" /> Inquiry Now
-    </a>
+    <Sheet open={open} onOpenChange={setOpen}>
+      <SheetTrigger asChild>
+        <button
+          aria-label="Inquiry"
+          className="fixed bottom-6 right-6 z-40 flex items-center gap-2 rounded-full px-5 py-3 text-sm font-semibold text-white shadow-2xl transition hover:-translate-y-0.5"
+          style={{ background: "var(--color-primary-deep)" }}
+        >
+          <MessageCircle className="h-4 w-4" /> Inquiry Now
+        </button>
+      </SheetTrigger>
+      <SheetContent side="right" className="w-full sm:max-w-md overflow-y-auto">
+        <SheetHeader className="text-left">
+          <SheetTitle className="font-display text-xl">Inquiry Now</SheetTitle>
+          <SheetDescription>Fill in the form and we will reply within 24 hours.</SheetDescription>
+        </SheetHeader>
+        <form onSubmit={handleSubmit} className="mt-6 space-y-4">
+          <Field label="Full name *" name="name" placeholder="Your name" required />
+          <Field label="Company" name="company" placeholder="Company name" />
+          <Field label="Email *" name="email" type="email" placeholder="you@company.com" required />
+          <Field label="Product interest *" name="product" placeholder="e.g. PU tote bags, leather belts…" required />
+          <div>
+            <label className="mb-1.5 block text-xs font-semibold uppercase tracking-widest text-muted-foreground">Message</label>
+            <textarea
+              name="message"
+              rows={4}
+              placeholder="Quantity, materials, target price, delivery…"
+              className="w-full rounded-lg border border-border bg-white px-4 py-3 text-sm outline-none focus:border-[color:var(--color-primary)]"
+              value={form.message}
+              onChange={(e) => setForm((f) => ({ ...f, message: e.target.value }))}
+            />
+          </div>
+          <button type="submit" className="btn-primary mt-2 w-full">
+            <Send className="h-4 w-4" /> Send inquiry
+          </button>
+          <div className="pt-2 text-center text-xs text-muted-foreground">
+            Or contact directly:{" "}
+            <a href="mailto:alex.chau@morcce.com" className="underline hover:text-[color:var(--color-primary-deep)]">alex.chau@morcce.com</a>
+            {" · "}
+            <a href="https://wa.me/8613480176296" target="_blank" rel="noopener noreferrer" className="underline hover:text-[color:var(--color-primary-deep)]">WhatsApp</a>
+          </div>
+        </form>
+      </SheetContent>
+    </Sheet>
   );
 }
 
