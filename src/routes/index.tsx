@@ -19,7 +19,7 @@ export const Route = createFileRoute("/")({
       { title: "MORCCE Fashion — OEM/ODM Handbag & Leather Goods Manufacturer" },
       { name: "description", content: "MORCCE Fashion Co., Limited — OEM/ODM handbag, wallet and belt factory in Guangzhou, China. Trusted by global brands since 2006." },
       { property: "og:title", content: "MORCCE Fashion — OEM/ODM Handbag Manufacturer" },
-      { property: "og:description", content: "Reputed manufacturer of ladies' bags, wallets, belts and fashion accessories. 150+ employees, 50,000 pcs monthly capacity." },
+      { property: "og:description", content: "Reputed manufacturer of ladies' bags, wallets, belts and fashion accessories. 200+ employees, 100,000 pcs monthly capacity." },
     ],
   }),
   component: Index,
@@ -104,14 +104,14 @@ function Hero() {
       <div className="hero-overlay absolute inset-0" />
       <div className="relative mx-auto flex max-w-7xl flex-col items-start px-5 py-28 md:py-40">
         <span className="mb-5 inline-flex items-center gap-2 rounded-full border border-white/40 bg-white/10 px-4 py-1.5 text-xs font-medium uppercase tracking-widest text-white backdrop-blur">
-          <Sparkles className="h-3.5 w-3.5" /> Verified Supplier · Since 2006
+          <Sparkles className="h-3.5 w-3.5" /> BSCI/SEDEX/FAMA AUDIT VERIFIED SUPPLIER · SINCE 2006
         </span>
         <h1 className="max-w-4xl font-display text-4xl font-bold leading-tight text-white md:text-6xl">
           Your Trusted OEM / ODM<br />
           <span style={{ color: "var(--color-primary)" }}>Handbag & Leather Goods</span> Manufacturer
         </h1>
         <p className="mt-6 max-w-2xl text-base text-white/85 md:text-lg">
-          MORCCE Fashion Co., Limited — Guangzhou-based factory with 150+ skilled staff producing ladies' bags,
+          MORCCE Fashion Co., Limited — Guangzhou-based factory with 200+ skilled staff producing ladies' bags,
           wallets, belts and fashion accessories for global retail brands.
         </p>
         <div className="mt-9 flex flex-wrap gap-4">
@@ -120,9 +120,9 @@ function Hero() {
         </div>
         <div className="mt-14 grid w-full max-w-3xl grid-cols-2 gap-6 border-t border-white/20 pt-8 md:grid-cols-4">
           {[
-            { k: "18+", v: "Years Experience" },
-            { k: "150+", v: "Employees" },
-            { k: "50,000", v: "Pcs / Month" },
+            { k: "20+", v: "Years Experience" },
+            { k: "200+", v: "Employees" },
+            { k: "100,000", v: "Pcs / Month" },
             { k: "500", v: "MOQ per style" },
           ].map((s) => (
             <div key={s.v}>
@@ -224,7 +224,7 @@ function Factory1() {
   ];
   return (
     <section id="factory" className="mx-auto max-w-7xl px-5 py-24">
-      <SectionHead eyebrow="Inside the Factory" title="5 floors, 150+ craftspeople, one integrated production line" sub="Cutting, sewing, painting, belt lines, packing and foreign-trade sample rooms — all under one roof in Guangzhou." />
+      <SectionHead eyebrow="Inside the Factory" title="5 floors, 200+ craftspeople, one integrated production line" sub="Cutting, sewing, painting, belt lines, packing and foreign-trade sample rooms — all under one roof in Guangzhou." />
       <div className="mt-12 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
         {shots.map((s) => (
           <figure key={s.label} className="group relative overflow-hidden rounded-xl">
@@ -243,8 +243,8 @@ function Factory1() {
 function Capabilities() {
   const rows = [
     { icon: Factory, k: "Location", v: "Guangzhou, Guangdong, China (HQ & showroom in Shenzhen)" },
-    { icon: Users, k: "Team", v: "150+ skilled workers across cutting, sewing, painting & QC" },
-    { icon: Package, k: "Monthly Capacity", v: "50,000 pcs across bags, wallets, belts & accessories" },
+    { icon: Users, k: "Team", v: "200+ skilled workers across cutting, sewing, painting & QC" },
+    { icon: Package, k: "Monthly Capacity", v: "100,000 pcs across bags, wallets, belts & accessories" },
     { icon: Layers, k: "MOQ", v: "500 pcs per color / per style" },
     { icon: Sparkles, k: "Sample Lead Time", v: "7–10 days from confirmed tech-pack" },
     { icon: Truck, k: "Delivery", v: "30–35 days after PP sample approval" },
