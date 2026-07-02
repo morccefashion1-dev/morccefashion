@@ -3,8 +3,17 @@ import { useState } from "react";
 import {
   ShieldCheck, Factory, Users, Package, Sparkles, PenTool,
   Box, Truck, Mail, Phone, MapPin, MessageCircle, ArrowRight,
-  CheckCircle2, Award, Globe2, Layers, Menu, X,
+  CheckCircle2, Award, Globe2, Layers, Menu, X, Send,
 } from "lucide-react";
+import { toast } from "sonner";
+import {
+  Sheet,
+  SheetContent,
+  SheetHeader,
+  SheetTitle,
+  SheetDescription,
+  SheetTrigger,
+} from "@/components/ui/sheet";
 
 import heroBg from "@/assets/luxury-designer-display-stockcake.jpg.asset.json";
 import workshop4 from "@/assets/workshop4.jpg.asset.json";
