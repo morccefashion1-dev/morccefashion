@@ -112,7 +112,7 @@ function Hero() {
         </h1>
         <p className="mt-6 max-w-2xl text-base text-white/85 md:text-lg">
           MORCCE Fashion Co., Limited — Guangzhou-based factory with 200+ skilled staff producing ladies' bags,
-          wallets, belts and fashion accessories for global retail brands.
+          wallets, belts and fashion accessories for global retail fast fashion brands.
         </p>
         <div className="mt-9 flex flex-wrap gap-4">
           <a href="#contact" className="btn-primary">Get a Quote <ArrowRight className="h-4 w-4" /></a>
@@ -163,7 +163,7 @@ function Products() {
   ];
   return (
     <section id="products" className="mx-auto max-w-7xl px-5 py-24">
-      <SectionHead eyebrow="Product Categories" title="Complete leather & fashion accessory range" sub="Four core product lines, all backed by in-house sample development and quality control." />
+      <SectionHead eyebrow="Product Categories" title="Complete handbag/wallet/belt & fashion accessory range" sub="Four core product lines, all backed by in-house sample development and quality control." />
       <div className="mt-14 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
         {cats.map((c) => (
           <article key={c.title} className="group overflow-hidden rounded-2xl border border-border bg-card shadow-sm transition hover:-translate-y-1 hover:shadow-xl">
@@ -188,14 +188,14 @@ function Products() {
 function Process() {
   const steps = [
     { icon: PenTool, title: "01 · Design Brief", desc: "Share sketches, tech-packs or reference samples. Our team reviews feasibility within 24h." },
-    { icon: Layers, title: "02 · Sample Development", desc: "Pre-production sample ready in 7–10 days. Material, hardware & color matched." },
-    { icon: Box, title: "03 · Bulk Production", desc: "MOQ 500 pcs / color / style. In-line QC at every workshop across 5 floors." },
-    { icon: Truck, title: "04 · Delivery", desc: "30–35 days after PP approval. FOB Yantian / HK / Shanghai / Ningbo / Xiamen." },
+    { icon: Layers, title: "02 · Sample Development&price confirmation", desc: "Pre-production sample ready in 7–10 days. Material, hardware & color matched." },
+    { icon: Box, title: "03 · Bulk Production&Strict quality inspection", desc: "MOQ 500 pcs / color / style. In-line QC at every workshop across 5 floors." },
+    { icon: Truck, title: "04 · Delivery", desc: "30–35 days after PP approval. FOB Yantian / HK / Shanghai / Ningbo / Xiamen etc..." },
   ];
   return (
     <section id="process" className="bg-muted py-24">
       <div className="mx-auto max-w-7xl px-5">
-        <SectionHead eyebrow="OEM / ODM Workflow" title="From idea to shipment — a clear, tracked path" sub="A visual, transparent process that mirrors how global brands actually source with us." />
+        <SectionHead eyebrow="OEM / ODM Workflow" title="From design to shipment — a clear, tracked path" sub="A visual, transparent process that mirrors how global brands actually source with us." />
         <div className="mt-14 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
           {steps.map((s) => (
             <div key={s.title} className="relative rounded-2xl border border-border bg-white p-6">
@@ -224,7 +224,7 @@ function Factory1() {
   ];
   return (
     <section id="factory" className="mx-auto max-w-7xl px-5 py-24">
-      <SectionHead eyebrow="Inside the Factory" title="5 floors, 200+ craftspeople, one integrated production line" sub="Cutting, sewing, painting, belt lines, packing and foreign-trade sample rooms — all under one roof in Guangzhou." />
+      <SectionHead eyebrow="Inside the Factory" title="5000m² workshop, 200+ experienced workers, two integrated production line" sub="Cutting, sewing, painting, belt lines, packing and foreign-trade sample rooms — all under one roof in Guangzhou.And the most important - we located in Shiling town which is 3kms far away from the largest pu/leather fabric market in the world." />
       <div className="mt-12 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
         {shots.map((s) => (
           <figure key={s.label} className="group relative overflow-hidden rounded-xl">
@@ -247,7 +247,7 @@ function Capabilities() {
     { icon: Package, k: "Monthly Capacity", v: "100,000 pcs across bags, wallets, belts & accessories" },
     { icon: Layers, k: "MOQ", v: "500 pcs per color / per style" },
     { icon: Sparkles, k: "Sample Lead Time", v: "7–10 days from confirmed tech-pack" },
-    { icon: Truck, k: "Delivery", v: "30–35 days after PP sample approval" },
+    { icon: Truck, k: "Delivery", v: "30–35 days after pre-production sample approval" },
     { icon: Globe2, k: "Incoterms", v: "FOB Yantian / HK / Shanghai / Ningbo / Xiamen" },
     { icon: ShieldCheck, k: "Payment", v: "30% deposit · 70% T/T against copy of B/L" },
   ];
@@ -383,7 +383,7 @@ function Contact() {
             <ContactRow icon={Mail} label="Email" value="alex.chau@morcce.com" href="mailto:alex.chau@morcce.com" />
             <ContactRow icon={Phone} label="Tel" value="+86-755-86058574 ext. 811" />
             <ContactRow icon={MessageCircle} label="Mobile / WhatsApp" value="+86-134-8017-6296" />
-            <ContactRow icon={MapPin} label="Factory" value="Guangzhou, Guangdong, China · Showroom in Shenzhen · 518053" />
+            <ContactRow icon={MapPin} label="Factory" value="Guangzhou, Guangdong, China&nbsp;" />
             <ContactRow icon={Globe2} label="Website" value="www.morcce.com" />
           </div>
         </div>
