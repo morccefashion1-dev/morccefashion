@@ -101,7 +101,7 @@ function Header({ open, setOpen }: { open: boolean; setOpen: (v: boolean) => voi
 function Hero() {
   return (
     <section className="relative overflow-hidden">
-      <img src={workshop4.url} alt="MORCCE handbag manufacturing workshop" className="absolute inset-0 h-full w-full object-cover" />
+      <img src={heroBg.url} alt="MORCCE handbag manufacturing workshop" className="absolute inset-0 h-full w-full object-cover" />
       <div className="hero-overlay absolute inset-0" />
       <div className="relative mx-auto flex max-w-7xl flex-col items-start px-5 py-28 md:py-40">
         <span className="mb-5 inline-flex items-center gap-2 rounded-full border border-white/40 bg-white/10 px-4 py-1.5 text-xs font-medium uppercase tracking-widest text-white backdrop-blur">
