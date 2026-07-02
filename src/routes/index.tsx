@@ -6,6 +6,7 @@ import {
   CheckCircle2, Award, Globe2, Layers, Menu, X,
 } from "lucide-react";
 
+import heroBg from "@/assets/luxury-designer-display-stockcake.jpg.asset.json";
 import workshop4 from "@/assets/workshop4.jpg.asset.json";
 import workshop5 from "@/assets/workshop5.jpg.asset.json";
 import workshop8 from "@/assets/workshop8.jpg.asset.json";
