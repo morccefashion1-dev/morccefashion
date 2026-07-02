@@ -13,6 +13,10 @@ import workshop8 from "@/assets/workshop8.jpg.asset.json";
 import workshop10 from "@/assets/workshop10.jpg.asset.json";
 import workshop12 from "@/assets/workshop12.jpg.asset.json";
 import workshop17 from "@/assets/workshop17.jpg.asset.json";
+import productHandbags from "@/assets/Ladies_Handbags.jpg.asset.json";
+import productWallets from "@/assets/Wallets_Purses.jpg.asset.json";
+import productBelts from "@/assets/Belts.jpg.asset.json";
+import productAccessories from "@/assets/Fashion_Accessories.jpg.asset.json";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -157,10 +161,10 @@ function TrustBar() {
 /* ---------------- Products ---------------- */
 function Products() {
   const cats = [
-    { title: "Ladies' Handbags", desc: "Tote, shoulder, crossbody & clutch bags in PU / genuine leather.", img: workshop10 },
-    { title: "Wallets & Purses", desc: "Bi-fold, tri-fold, long wallets and card holders.", img: workshop4 },
-    { title: "Belts", desc: "Fashion belts, leather belts, woven & braided styles.", img: workshop5 },
-    { title: "Fashion Accessories", desc: "Cosmetic bags, manicure sets, phone/iPad cases, hair accessories, jewelry.", img: workshop17 },
+    { title: "Ladies' Handbags", desc: "Tote, shoulder, crossbody & clutch bags in PU / genuine leather.", img: productHandbags },
+    { title: "Wallets & Purses", desc: "Bi-fold, tri-fold, long wallets and card holders.", img: productWallets },
+    { title: "Belts", desc: "Fashion belts, leather belts, woven & braided styles.", img: productBelts },
+    { title: "Fashion Accessories", desc: "Cosmetic bags, manicure sets, phone/iPad cases, hair accessories, jewelry.", img: productAccessories },
   ];
   return (
     <section id="products" className="mx-auto max-w-7xl px-5 py-24">
