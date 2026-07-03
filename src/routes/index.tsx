@@ -332,13 +332,6 @@ function About() {
   return (
     <section id="about" className="bg-muted py-24">
       <div className="mx-auto grid max-w-7xl gap-14 px-5 lg:grid-cols-2 lg:items-center">
-        <div className="relative">
-          <img src={workshop12.url} alt="MORCCE painting workshop" className="rounded-2xl object-cover shadow-xl" />
-          <div className="absolute -bottom-6 -right-6 hidden rounded-2xl bg-white p-5 shadow-xl md:block">
-            <div className="font-display text-3xl font-bold" style={{ color: "var(--color-primary-deep)" }}>2006</div>
-            <div className="text-xs uppercase tracking-widest text-muted-foreground">Established</div>
-          </div>
-        </div>
         <div>
           <div className="mb-3 text-xs uppercase tracking-[0.25em]" style={{ color: "var(--color-primary-deep)" }}>About MORCCE</div>
           <h2 className="font-display text-3xl font-bold md:text-4xl">A reputed first-class manufacturer of ladies' bags, wallets & belts.</h2>
