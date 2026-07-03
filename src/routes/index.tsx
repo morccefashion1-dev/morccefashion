@@ -440,7 +440,7 @@ function ContactRow({ icon: Icon, label, value, href }: { icon: React.ElementTyp
 /* ---------------- Footer ---------------- */
 function Footer() {
   return (
-    <footer className="border-t border-border bg-white py-10">
+    <footer className="border-t border-border bg-white py-10 pb-[max(2.5rem,calc(6rem+env(safe-area-inset-bottom)))] sm:pb-10">
       <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-4 px-5 text-sm text-muted-foreground md:flex-row">
         <div>© {new Date().getFullYear()} MORCCE Fashion Co., Limited. All rights reserved.</div>
         <div className="flex gap-6">
