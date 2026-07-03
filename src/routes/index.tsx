@@ -332,7 +332,7 @@ function About() {
   return (
     <section id="about" className="bg-muted py-24">
       <div className="mx-auto max-w-7xl px-5">
-        <div>
+        <div className="mx-auto max-w-4xl">
           <div className="mb-3 text-xs uppercase tracking-[0.25em]" style={{ color: "var(--color-primary-deep)" }}>About MORCCE</div>
           <h2 className="font-display text-3xl font-bold md:text-4xl">A reputed first-class manufacturer of ladies' bags, wallets & belts.</h2>
           <p className="mt-5 text-muted-foreground">
@@ -345,7 +345,7 @@ function About() {
             Our goal is total customer satisfaction. Professional manufacturing systems, a rigorous QC process,
             on-time delivery and years of experience are what keep our partners growing with us.
           </p>
-          <ul className="mt-6 grid gap-3 sm:grid-cols-2">
+          <ul className="mt-6 grid gap-3 pb-12 sm:grid-cols-2">
             {pts.map((p) => (
               <li key={p} className="flex items-start gap-2 text-sm">
                 <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0" style={{ color: "var(--color-primary)" }} />
