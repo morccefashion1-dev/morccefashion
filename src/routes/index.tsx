@@ -345,7 +345,7 @@ function About() {
             Our goal is total customer satisfaction. Professional manufacturing systems, a rigorous QC process,
             on-time delivery and years of experience are what keep our partners growing with us.
           </p>
-          <ul className="mt-6 grid gap-3 pb-12 sm:grid-cols-2">
+          <ul className="mt-6 grid gap-3 sm:grid-cols-2">
             {pts.map((p) => (
               <li key={p} className="flex items-start gap-2 text-sm">
                 <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0" style={{ color: "var(--color-primary)" }} />
