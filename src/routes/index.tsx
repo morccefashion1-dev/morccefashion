@@ -331,7 +331,7 @@ function About() {
   ];
   return (
     <section id="about" className="bg-muted py-24">
-      <div className="mx-auto grid max-w-7xl gap-14 px-5 lg:grid-cols-2 lg:items-center">
+      <div className="mx-auto max-w-7xl px-5">
         <div>
           <div className="mb-3 text-xs uppercase tracking-[0.25em]" style={{ color: "var(--color-primary-deep)" }}>About MORCCE</div>
           <h2 className="font-display text-3xl font-bold md:text-4xl">A reputed first-class manufacturer of ladies' bags, wallets & belts.</h2>
