@@ -345,7 +345,7 @@ function About() {
             Our goal is total customer satisfaction. Professional manufacturing systems, a rigorous QC process,
             on-time delivery and years of experience are what keep our partners growing with us.
           </p>
-          <ul className="mt-6 grid gap-3 pb-12 sm:grid-cols-2">
+          <ul className="mt-6 grid gap-3 sm:grid-cols-2">
             {pts.map((p) => (
               <li key={p} className="flex items-start gap-2 text-sm">
                 <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0" style={{ color: "var(--color-primary)" }} />
@@ -440,7 +440,7 @@ function ContactRow({ icon: Icon, label, value, href }: { icon: React.ElementTyp
 /* ---------------- Footer ---------------- */
 function Footer() {
   return (
-    <footer className="border-t border-border bg-white py-10">
+    <footer className="border-t border-border bg-white py-10 pb-[max(2.5rem,calc(6rem+env(safe-area-inset-bottom)))] sm:pb-10">
       <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-4 px-5 text-sm text-muted-foreground md:flex-row">
         <div>© {new Date().getFullYear()} MORCCE Fashion Co., Limited. All rights reserved.</div>
         <div className="flex gap-6">
