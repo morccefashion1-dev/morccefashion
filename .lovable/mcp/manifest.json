@@ -1,0 +1,105 @@
+{
+  "version": 1,
+  "sdk_version": "0.20.0",
+  "path": "/mcp",
+  "auth": {
+    "type": "none"
+  },
+  "mcp": {
+    "server": {
+      "name": "morcce-fashion-mcp",
+      "version": "0.1.0",
+      "title": "MORCCE Fashion MCP"
+    },
+    "tools": [
+      {
+        "name": "get_company_info",
+        "title": "Get company info",
+        "description": "Return an overview of MORCCE Fashion Co., Limited including business scope, location, and contact channels.",
+        "annotations": {
+          "readOnlyHint": true,
+          "idempotentHint": true,
+          "openWorldHint": false
+        },
+        "inputSchema": {
+          "$schema": "http://json-schema.org/draft-07/schema#",
+          "type": "object",
+          "properties": {}
+        },
+        "outputSchema": null
+      },
+      {
+        "name": "list_product_categories",
+        "title": "List product categories",
+        "description": "List the product categories MORCCE Fashion manufactures via OEM/ODM.",
+        "annotations": {
+          "readOnlyHint": true,
+          "idempotentHint": true,
+          "openWorldHint": false
+        },
+        "inputSchema": {
+          "$schema": "http://json-schema.org/draft-07/schema#",
+          "type": "object",
+          "properties": {}
+        },
+        "outputSchema": null
+      },
+      {
+        "name": "submit_inquiry",
+        "title": "Submit inquiry",
+        "description": "Record a buyer inquiry for MORCCE Fashion. Returns follow-up contact channels the buyer should use to reach the sales team.",
+        "annotations": {
+          "readOnlyHint": false,
+          "destructiveHint": false,
+          "openWorldHint": false
+        },
+        "inputSchema": {
+          "$schema": "http://json-schema.org/draft-07/schema#",
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string",
+              "minLength": 1,
+              "description": "Buyer full name."
+            },
+            "company": {
+              "description": "Buyer company name.",
+              "type": "string"
+            },
+            "email": {
+              "type": "string",
+              "format": "email",
+              "pattern": "^(?!\\.)(?!.*\\.\\.)([A-Za-z0-9_'+\\-\\.]*)[A-Za-z0-9_+-]@([A-Za-z0-9][A-Za-z0-9\\-]*\\.)+[A-Za-z]{2,}$",
+              "description": "Buyer email address."
+            },
+            "country": {
+              "description": "Buyer country or region.",
+              "type": "string"
+            },
+            "productInterest": {
+              "type": "string",
+              "minLength": 1,
+              "description": "Product category or specific item the buyer is interested in."
+            },
+            "quantity": {
+              "description": "Estimated order quantity (e.g. '500 pcs').",
+              "type": "string"
+            },
+            "message": {
+              "type": "string",
+              "minLength": 1,
+              "description": "Detailed inquiry message."
+            }
+          },
+          "required": [
+            "name",
+            "email",
+            "productInterest",
+            "message"
+          ]
+        },
+        "outputSchema": null
+      }
+    ]
+  }
+}
