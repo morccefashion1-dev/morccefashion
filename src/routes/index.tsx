@@ -30,10 +30,9 @@ import productAccessories from "@/assets/Fashion_Accessories.jpg.asset.json";
 const SITE_URL = "https://morccefashion.lovable.app";
 const OG_IMAGE =
   "https://storage.googleapis.com/gpt-engineer-file-uploads/Jt2d9qSliDRxLXQfJlrMVbyXfC92/social-images/social-1783046614510-MORCCE_FASHION_COMPANY_LOCO.webp";
-const PAGE_TITLE =
-  "MORCCE Fashion — OEM/ODM Handbag, Wallet & Leather Goods Manufacturer in China";
+const PAGE_TITLE = "MORCCE Fashion — OEM/ODM Handbag Manufacturer China";
 const PAGE_DESC =
-  "OEM/ODM handbag manufacturer in Guangzhou, China. MORCCE Fashion produces ladies handbags, wallets, belts and fashion accessories for global brands since 2006. 200+ staff, 100,000 pcs monthly capacity.";
+  "OEM/ODM handbag, wallet, belt & accessories manufacturer in Guangzhou. 200+ staff, 100k pcs/month capacity, serving global brands since 2006.";
 
 export const Route = createFileRoute("/")({
   head: () => ({
