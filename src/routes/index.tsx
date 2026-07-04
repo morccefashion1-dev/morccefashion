@@ -27,13 +27,71 @@ import productWallets from "@/assets/Wallets_Purses.jpg.asset.json";
 import productBelts from "@/assets/Belts.jpg.asset.json";
 import productAccessories from "@/assets/Fashion_Accessories.jpg.asset.json";
 
+const SITE_URL = "https://morccefashion.lovable.app";
+const OG_IMAGE =
+  "https://storage.googleapis.com/gpt-engineer-file-uploads/Jt2d9qSliDRxLXQfJlrMVbyXfC92/social-images/social-1783046614510-MORCCE_FASHION_COMPANY_LOCO.webp";
+const PAGE_TITLE =
+  "MORCCE Fashion — OEM/ODM Handbag, Wallet & Leather Goods Manufacturer in China";
+const PAGE_DESC =
+  "OEM/ODM handbag manufacturer in Guangzhou, China. MORCCE Fashion produces ladies handbags, wallets, belts and fashion accessories for global brands since 2006. 200+ staff, 100,000 pcs monthly capacity.";
+
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "MORCCE Fashion — OEM/ODM Handbag & Leather Goods Manufacturer" },
-      { name: "description", content: "MORCCE Fashion Co., Limited — OEM/ODM handbag, wallet and belt factory in Guangzhou, China. Trusted by global brands since 2006." },
-      { property: "og:title", content: "MORCCE Fashion — OEM/ODM Handbag Manufacturer" },
-      { property: "og:description", content: "Reputed manufacturer of ladies' bags, wallets, belts and fashion accessories. 200+ employees, 100,000 pcs monthly capacity." },
+      { title: PAGE_TITLE },
+      { name: "description", content: PAGE_DESC },
+      {
+        name: "keywords",
+        content:
+          "handbag manufacturer, OEM handbag factory, ODM handbag supplier, ladies handbags manufacturer China, wallet manufacturer, leather belt factory, fashion accessories supplier, Guangzhou handbag factory, MORCCE Fashion",
+      },
+      { property: "og:title", content: PAGE_TITLE },
+      { property: "og:description", content: PAGE_DESC },
+      { property: "og:url", content: SITE_URL },
+      { property: "og:image", content: OG_IMAGE },
+      { property: "og:image:alt", content: "MORCCE Fashion — handbag and leather goods manufacturer" },
+      { name: "twitter:title", content: PAGE_TITLE },
+      { name: "twitter:description", content: PAGE_DESC },
+      { name: "twitter:image", content: OG_IMAGE },
+    ],
+    links: [{ rel: "canonical", href: SITE_URL }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "WebSite",
+          name: "MORCCE Fashion",
+          url: SITE_URL,
+          inLanguage: "en",
+          publisher: { "@type": "Organization", name: "MORCCE Fashion Co., Limited" },
+        }),
+      },
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Manufacturer",
+          name: "MORCCE Fashion Co., Limited",
+          url: SITE_URL,
+          logo: OG_IMAGE,
+          image: OG_IMAGE,
+          foundingDate: "2006",
+          numberOfEmployees: { "@type": "QuantitativeValue", value: 200 },
+          address: {
+            "@type": "PostalAddress",
+            addressCountry: "CN",
+            addressRegion: "Guangdong",
+            addressLocality: "Guangzhou",
+          },
+          makesOffer: [
+            { "@type": "Offer", itemOffered: { "@type": "Product", name: "Ladies Handbags" } },
+            { "@type": "Offer", itemOffered: { "@type": "Product", name: "Wallets & Purses" } },
+            { "@type": "Offer", itemOffered: { "@type": "Product", name: "Belts" } },
+            { "@type": "Offer", itemOffered: { "@type": "Product", name: "Fashion Accessories" } },
+          ],
+        }),
+      },
     ],
   }),
   component: Index,
