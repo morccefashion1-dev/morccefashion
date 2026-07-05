@@ -445,12 +445,53 @@ function Clients() {
 
 /* ---------------- Contact ---------------- */
 function Contact() {
+  const [form, setForm] = useState({ name: "", company: "", email: "", phone: "", product: "", message: "" });
+  const [submitting, setSubmitting] = useState(false);
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (submitting) return;
+    setSubmitting(true);
+    try {
+      const res = await fetch("/api/public/inquiry", {
+        method: "POST",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify({
+          fullName: form.name,
+          company: form.company || null,
+          email: form.email,
+          phone: form.phone || null,
+          productInterest: form.product || null,
+          message: form.message || null,
+          source: "contact-section",
+        }),
+      });
+      if (!res.ok) throw new Error(String(res.status));
+      toast.success("Inquiry received", {
+        description: "Thanks for reaching out — Alex Chau will reply within 1 hour.",
+        duration: 8000,
+      });
+      setForm({ name: "", company: "", email: "", phone: "", product: "", message: "" });
+    } catch {
+      toast.error("Could not submit", {
+        description: (
+          <span>
+            Please email us directly:{" "}
+            <a href="mailto:alex.chau@morcce.com" className="underline">alex.chau@morcce.com</a>
+          </span>
+        ),
+      });
+    } finally {
+      setSubmitting(false);
+    }
+  };
+
   return (
     <section id="contact" className="bg-secondary py-24 text-white">
       <div className="mx-auto grid max-w-7xl gap-14 px-5 lg:grid-cols-2">
         <div>
           <div className="mb-3 text-xs uppercase tracking-[0.25em]" style={{ color: "var(--color-primary)" }}>Inquiry Now</div>
-          <h2 className="font-display text-3xl font-bold md:text-4xl">Send your tech-pack or reference — we reply within 24h.</h2>
+          <h2 className="font-display text-3xl font-bold md:text-4xl">Send your tech-pack or reference — we reply within 1 hour.</h2>
           <p className="mt-4 text-white/70">Reach our foreign trade team directly. All new-project inquiries are handled by Alex Chau.</p>
           <div className="mt-8 space-y-4 text-sm">
             <ContactRow icon={Users} label="Contact person" value="Alex Chau" />
@@ -461,18 +502,21 @@ function Contact() {
             <ContactRow icon={Globe2} label="Website" value="www.morcce.com" />
           </div>
         </div>
-        <form className="rounded-2xl bg-white p-8 text-secondary shadow-2xl" onSubmit={(e) => e.preventDefault()}>
+        <form className="rounded-2xl bg-white p-8 text-secondary shadow-2xl" onSubmit={handleSubmit}>
           <h3 className="font-display text-xl font-bold">Request a quotation</h3>
           <div className="mt-6 grid gap-4">
-            <Field label="Full name" placeholder="Your name" />
-            <Field label="Company" placeholder="Company name" />
-            <Field label="Email" type="email" placeholder="you@company.com" />
-            <Field label="Product interest" placeholder="e.g. PU tote bags, leather belts…" />
+            <Field label="Full name *" name="name" placeholder="Your name" required value={form.name} onChange={(e) => setForm((f) => ({ ...f, name: e.target.value }))} />
+            <Field label="Company" name="company" placeholder="Company name" value={form.company} onChange={(e) => setForm((f) => ({ ...f, company: e.target.value }))} />
+            <Field label="Email *" name="email" type="email" placeholder="you@company.com" required value={form.email} onChange={(e) => setForm((f) => ({ ...f, email: e.target.value }))} />
+            <Field label="Phone / WhatsApp" name="phone" placeholder="+1 555 0100" value={form.phone} onChange={(e) => setForm((f) => ({ ...f, phone: e.target.value }))} />
+            <Field label="Product interest" name="product" placeholder="e.g. PU tote bags, leather belts…" value={form.product} onChange={(e) => setForm((f) => ({ ...f, product: e.target.value }))} />
             <div>
               <label className="mb-1.5 block text-xs font-semibold uppercase tracking-widest text-muted-foreground">Message</label>
-              <textarea rows={4} placeholder="Quantity, materials, target price, delivery…" className="w-full rounded-lg border border-border bg-white px-4 py-3 text-sm outline-none focus:border-[color:var(--color-primary)]" />
+              <textarea rows={4} placeholder="Quantity, materials, target price, delivery…" value={form.message} onChange={(e) => setForm((f) => ({ ...f, message: e.target.value }))} className="w-full rounded-lg border border-border bg-white px-4 py-3 text-sm outline-none focus:border-[color:var(--color-primary)]" />
             </div>
-            <button className="btn-primary mt-2 w-full">Send inquiry <ArrowRight className="h-4 w-4" /></button>
+            <button type="submit" disabled={submitting} className="btn-primary mt-2 w-full disabled:opacity-60">
+              {submitting ? "Sending…" : (<>Send inquiry <ArrowRight className="h-4 w-4" /></>)}
+            </button>
           </div>
         </form>
       </div>
