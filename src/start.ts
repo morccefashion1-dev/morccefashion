@@ -1,6 +1,7 @@
 import { createStart, createMiddleware } from "@tanstack/react-start";
 
 import { renderErrorPage } from "./lib/error-page";
+import { attachSupabaseAuth } from "@/integrations/supabase/auth-attacher";
 
 // Countries to block (ISO 3166-1 alpha-2). CN = Mainland China.
 // HK/MO/TW are NOT blocked. Add them here if desired.
@@ -36,6 +37,7 @@ const errorMiddleware = createMiddleware().server(async ({ next }) => {
 });
 
 export const startInstance = createStart(() => ({
+  functionMiddleware: [attachSupabaseAuth],
   requestMiddleware: [geoBlockMiddleware, errorMiddleware],
 }));
 
