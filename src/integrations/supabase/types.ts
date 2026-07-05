@@ -14,7 +14,129 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      blocked_requests: {
+        Row: {
+          country: string | null
+          created_at: string
+          id: string
+          ip: string | null
+          path: string | null
+          referer: string | null
+          user_agent: string | null
+        }
+        Insert: {
+          country?: string | null
+          created_at?: string
+          id?: string
+          ip?: string | null
+          path?: string | null
+          referer?: string | null
+          user_agent?: string | null
+        }
+        Update: {
+          country?: string | null
+          created_at?: string
+          id?: string
+          ip?: string | null
+          path?: string | null
+          referer?: string | null
+          user_agent?: string | null
+        }
+        Relationships: []
+      }
+      contact_submissions: {
+        Row: {
+          autoreply_sent_at: string | null
+          company: string | null
+          country: string | null
+          created_at: string
+          digest_sent_at: string | null
+          email: string
+          full_name: string
+          id: string
+          ip: string | null
+          message: string | null
+          notified_at: string | null
+          phone: string | null
+          product_interest: string | null
+          source: string | null
+          user_agent: string | null
+        }
+        Insert: {
+          autoreply_sent_at?: string | null
+          company?: string | null
+          country?: string | null
+          created_at?: string
+          digest_sent_at?: string | null
+          email: string
+          full_name: string
+          id?: string
+          ip?: string | null
+          message?: string | null
+          notified_at?: string | null
+          phone?: string | null
+          product_interest?: string | null
+          source?: string | null
+          user_agent?: string | null
+        }
+        Update: {
+          autoreply_sent_at?: string | null
+          company?: string | null
+          country?: string | null
+          created_at?: string
+          digest_sent_at?: string | null
+          email?: string
+          full_name?: string
+          id?: string
+          ip?: string | null
+          message?: string | null
+          notified_at?: string | null
+          phone?: string | null
+          product_interest?: string | null
+          source?: string | null
+          user_agent?: string | null
+        }
+        Relationships: []
+      }
+      visitor_events: {
+        Row: {
+          city: string | null
+          country: string | null
+          created_at: string
+          id: string
+          ip: string | null
+          language: string | null
+          path: string
+          referer: string | null
+          session_id: string | null
+          user_agent: string | null
+        }
+        Insert: {
+          city?: string | null
+          country?: string | null
+          created_at?: string
+          id?: string
+          ip?: string | null
+          language?: string | null
+          path: string
+          referer?: string | null
+          session_id?: string | null
+          user_agent?: string | null
+        }
+        Update: {
+          city?: string | null
+          country?: string | null
+          created_at?: string
+          id?: string
+          ip?: string | null
+          language?: string | null
+          path?: string
+          referer?: string | null
+          session_id?: string | null
+          user_agent?: string | null
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
