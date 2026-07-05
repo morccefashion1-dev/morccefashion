@@ -25,6 +25,8 @@ import workshop17 from "@/assets/workshop17.jpg.asset.json";
 import productHandbags from "@/assets/Ladies_Handbags.jpg.asset.json";
 import productWallets from "@/assets/Wallets_Purses.jpg.asset.json";
 import productBelts from "@/assets/Belts.jpg.asset.json";
+import handbagsCatalog from "@/assets/handbags-catalog.pdf.asset.json";
+import beltsCatalog from "@/assets/belts-catalog.pdf.asset.json";
 import productAccessories from "@/assets/Fashion_Accessories.jpg.asset.json";
 
 const SITE_URL = "https://morccefashion.lovable.app";
@@ -227,29 +229,37 @@ function TrustBar() {
 /* ---------------- Products ---------------- */
 function Products() {
   const cats = [
-    { title: "Ladies' Handbags", desc: "Tote, shoulder, crossbody & clutch bags in PU / genuine leather.", img: productHandbags },
-    { title: "Wallets & Purses", desc: "Bi-fold, tri-fold, long wallets and card holders.", img: productWallets },
-    { title: "Belts", desc: "Fashion belts, leather belts, woven & braided styles.", img: productBelts },
-    { title: "Fashion Accessories", desc: "Cosmetic bags, manicure sets, phone/iPad cases, hair accessories, jewelry.", img: productAccessories },
+    { title: "Ladies' Handbags", desc: "Tote, shoulder, crossbody & clutch bags in PU / genuine leather.", img: productHandbags, catalog: handbagsCatalog.url },
+    { title: "Wallets & Purses", desc: "Bi-fold, tri-fold, long wallets and card holders.", img: productWallets, catalog: "#contact" },
+    { title: "Belts", desc: "Fashion belts, leather belts, woven & braided styles.", img: productBelts, catalog: beltsCatalog.url },
+    { title: "Fashion Accessories", desc: "Cosmetic bags, manicure sets, phone/iPad cases, hair accessories, jewelry.", img: productAccessories, catalog: "#contact" },
   ];
   return (
     <section id="products" className="mx-auto max-w-7xl px-5 py-24">
       <SectionHead eyebrow="Product Categories" title="Complete handbag/wallet/belt & fashion accessory range" sub="Four core product lines, all backed by in-house sample development and quality control." />
       <div className="mt-14 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
-        {cats.map((c) => (
-          <article key={c.title} className="group overflow-hidden rounded-2xl border border-border bg-card shadow-sm transition hover:-translate-y-1 hover:shadow-xl">
-            <div className="aspect-square overflow-hidden sm:aspect-[4/3]">
-              <img src={c.img.url} alt={c.title} className="h-full w-full object-cover object-center transition duration-500 group-hover:scale-105" />
-            </div>
-            <div className="p-6">
-              <h3 className="font-display text-lg font-bold">{c.title}</h3>
-              <p className="mt-2 text-sm text-muted-foreground">{c.desc}</p>
-              <a href="#contact" className="mt-4 inline-flex items-center gap-1 text-sm font-semibold" style={{ color: "var(--color-primary-deep)" }}>
-                Request catalog <ArrowRight className="h-3.5 w-3.5" />
-              </a>
-            </div>
-          </article>
-        ))}
+        {cats.map((c) => {
+          const isPdf = c.catalog.startsWith("http") || c.catalog.startsWith("/__l5e");
+          return (
+            <article key={c.title} className="group overflow-hidden rounded-2xl border border-border bg-card shadow-sm transition hover:-translate-y-1 hover:shadow-xl">
+              <div className="aspect-square overflow-hidden sm:aspect-[4/3]">
+                <img src={c.img.url} alt={c.title} className="h-full w-full object-cover object-center transition duration-500 group-hover:scale-105" />
+              </div>
+              <div className="p-6">
+                <h3 className="font-display text-lg font-bold">{c.title}</h3>
+                <p className="mt-2 text-sm text-muted-foreground">{c.desc}</p>
+                <a
+                  href={c.catalog}
+                  {...(isPdf ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+                  className="mt-4 inline-flex items-center gap-1 text-sm font-semibold"
+                  style={{ color: "var(--color-primary-deep)" }}
+                >
+                  Request catalog <ArrowRight className="h-3.5 w-3.5" />
+                </a>
+              </div>
+            </article>
+          );
+        })}
       </div>
     </section>
   );
