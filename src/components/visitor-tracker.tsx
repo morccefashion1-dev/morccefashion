@@ -18,7 +18,7 @@ function getSessionId(): string {
  * route change (and initial mount). Silent on failure.
  */
 export function VisitorTracker() {
-  const pathname = useRouterState({ select: (s) => s.location.pathname + s.location.search });
+  const pathname = useRouterState({ select: (s) => s.location.href });
 
   useEffect(() => {
     if (typeof window === "undefined") return;
