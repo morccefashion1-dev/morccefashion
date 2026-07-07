@@ -138,9 +138,9 @@ function Header({ open, setOpen }: { open: boolean; setOpen: (v: boolean) => voi
           <div className="flex h-9 w-9 items-center justify-center rounded-md bg-secondary text-primary-foreground">
             <span className="font-display text-lg font-bold" style={{ color: "var(--color-primary)" }}>M</span>
           </div>
-          <div className="leading-tight">
-            <div className="font-display text-base font-bold tracking-tight">MORCCE</div>
-            <div className="text-[10px] uppercase tracking-[0.18em] text-muted-foreground">Fashion Co., Ltd</div>
+          <div className="flex flex-col justify-center">
+            <span className="font-display text-base font-bold tracking-tight leading-none">MORCCE</span>
+            <span className="text-[11px] font-medium tracking-wide text-muted-foreground leading-none mt-0.5">Fashion Co., Ltd</span>
           </div>
         </a>
         <nav className="hidden items-center gap-7 md:flex">
