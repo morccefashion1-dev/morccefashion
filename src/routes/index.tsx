@@ -161,7 +161,7 @@ function Header({ open, setOpen }: { open: boolean; setOpen: (v: boolean) => voi
             {NAV.map((n) => (
               <a key={n.href} href={n.href} onClick={() => setOpen(false)} className="rounded-md px-3 py-2 text-sm font-medium hover:bg-muted">{n.label}</a>
             ))}
-            <a href="#contact" onClick={() => setOpen(false)} className="btn-primary mt-2" style={{ padding: "0.6rem 1.25rem" }}>Inquiry Now</a>
+            <a href="mailto:alex.chau@morcce.com?subject=Inquiry%20from%20Official%20Website" onClick={() => setOpen(false)} className="btn-primary mt-2" style={{ padding: "0.6rem 1.25rem" }}>SEND INQUIRY</a>
           </div>
         </div>
       )}
